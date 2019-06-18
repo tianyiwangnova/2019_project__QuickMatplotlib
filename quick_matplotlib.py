@@ -79,12 +79,64 @@ class QuickMatplotlib:
                       ytick_labelsize,
                       xtick_rotate,
                       style_)
-
-        ax = sns.distplot(data, bins = bins)
         
+        n, bins, patches = plt.hist(data, color="cornflowerblue", bins=bins)
+        
+        plt.title(title)
+        if xlabel is not None:
+            plt.xlabel(xlabel)
+        if ylabel is not None:
+            plt.ylabel(ylabel)
+        
+    def heatmap(self,
+               df,
+               figsize = (10, 10),
+               title_size = 10,
+                xtick_labelsize = 10,
+                ytick_labelsize = 10,
+                xtick_rotate = 45,
+                title = None,
+                xlabel = None,
+                ylabel = None,
+                style_ = None,
+                cmap = "YlGnBu"):
+
+        self.chart_set(figsize,
+                      title_size,
+                      xtick_labelsize,
+                      ytick_labelsize,
+                      xtick_rotate,
+                      style_)
+
+        ax = sns.heatmap(df, cmap=cmap)
+
         self.ax_set(ax,
                    title,
                    xlabel,
                    ylabel)
 
+    def ridgeplot(self,
+                 df,
+                 figsize = (10, 10),
+                 title_size = 10,
+                  xtick_labelsize = 10,
+                  ytick_labelsize = 10,
+                  xtick_rotate = 45,
+                  title = None,
+                  xlabel = None,
+                  ylabel = None,
+                  style_ = None,
+                  cmap = "YlGnBu"):
+
+        self.chart_set(figsize,
+                      title_size,
+                      xtick_labelsize,
+                      ytick_labelsize,
+                      xtick_rotate,
+                      style_)
+
+        ax = self.ax_set(ax,
+                       title,
+                       xlabel,
+                       ylabel)
         
